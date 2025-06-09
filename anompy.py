@@ -4,7 +4,7 @@ import pandas as pd
 #import os
 
 #Carpeta donde se ubica el script
-script_path='C:\\jactools\\anompytso\\'
+script_path = "C:\\jactools\\anompytso\\"
 
 mat_t = scipy.io.loadmat(script_path+'database\\TEMP_TOTAL_1991_2020_V2.mat');
 mat_s = scipy.io.loadmat(script_path+'database\\PSAL_TOTAL_1991_2020_V2.mat');
@@ -157,17 +157,23 @@ def anomfilas(nombrearchivo,nombrehoja,LonC, LatC, ProfC, FechaC, TctdC, SctdC, 
 
 
 ### Usuario
-na=input("\nnombre de archivo: ")
-nh=input("\nnombre de hoja: ")
-latt=input("\ncolumna latitud: ")
-lonn=input("\ncolumna longitud: ")
-proff=input("\ncolumna profundidad: ")
-fecc=input("\ncolumna mes: ")
-tt=input("\ncolumna temperatura: ")
-ss=input("\ncolumna salinidad: ")
-oo=input("\ncolumna oxigeno: ")
-print("\n")
-anomfilas(na,nh,lonn, latt, proff, fecc, tt, ss, oo)
+if __name__ == "__main__":
+    import argparse
 
+    parser = argparse.ArgumentParser(description="Calcular anomalías T, S, O desde un archivo Excel.")
+    parser.add_argument('--archivo', required=True, help='Ruta al archivo Excel')
+    parser.add_argument('--hoja', required=True, help='Nombre de la hoja')
+    parser.add_argument('--columnas', required=True,
+                        help='Columnas en orden: lon,lat,prof,mes,temp,sali,oxi (ej. A,B,C,D,E,F,G)')
 
+    args = parser.parse_args()
+    columnas = args.columnas.split(',')
 
+    if len(columnas) != 7:
+        raise ValueError("Se esperaban exactamente 7 columnas: lon,lat,prof,mes,temp,sali,oxi")
+
+    # Desempaquetamos los valores
+    lonn, latt, proff, fecc, tt, ss, oo = columnas
+
+    # Llamamos a la función principal
+    anomfilas(args.archivo, args.hoja, lonn, latt, proff, fecc, tt, ss, oo)

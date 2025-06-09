@@ -1,0 +1,6 @@
+README.md
+setup.py
+anompytso.egg-info/PKG-INFO
+anompytso.egg-info/SOURCES.txt
+anompytso.egg-info/dependency_links.txt
+anompytso.egg-info/top_level.txt
