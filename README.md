@@ -30,7 +30,7 @@ C:\jactools\anompytso\database\
 
 ---
 
-## 🚀 Cómo usar
+##  Cómo usar
 
 ```bash
 python anompy.py --archivo "ruta/datos.xlsx" --hoja "Hoja1" --columnas A,B,C,D,E,F,G
