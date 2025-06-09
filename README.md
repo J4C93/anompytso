@@ -1,10 +1,10 @@
-# 🧪 anompytso
+#  anompytso
 
-Este script permite calcular **anomalías de Temperatura, Salinidad y Oxígeno disuelto** a partir de datos CTD almacenados en un archivo Excel, usando climatologías mensuales de referencia.
+Este script permite calcular **anomalías de Temperatura, Salinidad y Oxígeno disuelto** a partir de datos in-situ almacenados en un archivo Excel, usando climatologías mensuales de referencia.
 
 ---
 
-## 📦 Requisitos
+##  Requisitos
 
 - Python 3.7 o superior
 - Paquetes necesarios:
@@ -14,7 +14,7 @@ Este script permite calcular **anomalías de Temperatura, Salinidad y Oxígeno d
 
 ---
 
-## 📂 Archivos requeridos
+##  Archivos requeridos
 
 El script carga los siguientes archivos `.mat`, que deben estar en la ruta:
 
@@ -36,7 +36,7 @@ C:\jactools\anompytso\database\
 python anompy.py --archivo "ruta/datos.xlsx" --hoja "Hoja1" --columnas A,B,C,D,E,F,G
 ```
 
-### 🔠 Argumentos
+###  Argumentos
 
 | Opción        | Descripción                                                   |
 |---------------|---------------------------------------------------------------|
@@ -44,14 +44,14 @@ python anompy.py --archivo "ruta/datos.xlsx" --hoja "Hoja1" --columnas A,B,C,D,E
 | `--hoja`      | Nombre de la hoja dentro del archivo Excel                    |
 | `--columnas`  | Letras de columnas (en orden): `lon,lat,prof,mes,temp,sali,oxi` |
 
-📌 **Ejemplo:**
+ **Ejemplo:**
 ```bash
 python anompy.py --archivo "data cruda.xlsx" --hoja "CTD" --columnas A,B,C,D,E,F,G
 ```
 
 ---
 
-## 📤 Salida
+##  Salida
 
 Se genera un archivo Excel llamado:
 
@@ -67,7 +67,7 @@ Este archivo contiene tres nuevas columnas con las anomalías:
 
 ---
 
-## 🧠 Notas
+##  Notas
 
 - La profundidad (`z`) debe estar en valores positivos hacia el fondo.
 - La columna `mes` debe contener valores enteros del 1 al 12.
@@ -75,7 +75,7 @@ Este archivo contiene tres nuevas columnas con las anomalías:
 
 ---
 
-## ✍️ Autor
+##  Autor
 
 Desarrollado por **J4C93**  
 
